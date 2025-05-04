@@ -1,9 +1,13 @@
 
 import { motion } from 'framer-motion';
 import SocialLinks from './SocialLinks';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '@/context/LanguageContext';
+import { getTranslation } from '@/data/translations';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { language } = useLanguage();
   
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -28,14 +32,17 @@ const Footer = () => {
               Portfolio
             </div>
             <p className="text-foreground/70">
-              Creating exceptional digital experiences
+              {getTranslation('header.subtitle', language)}
             </p>
           </div>
           
           <div className="flex flex-col items-center md:items-end gap-4">
-            <SocialLinks />
+            <div className="flex items-center gap-6">
+              <LanguageSelector />
+              <SocialLinks />
+            </div>
             <p className="text-foreground/50 text-sm">
-              © {currentYear} John Doe. All rights reserved.
+              © {currentYear} John Doe. {getTranslation('footer.rights', language)}
             </p>
           </div>
         </div>
