@@ -1,12 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Hero from '@/components/Hero';
+import Navbar from '@/components/Navbar';
+import About from '@/components/About';
+import Projects from '@/components/Projects';
+import Testimonials from '@/components/Testimonials';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import ProgressIndicator from '@/components/ProgressIndicator';
 
 const Index = () => {
+  useEffect(() => {
+    // Set meta tags for SEO
+    document.title = 'John Doe | Web Developer Portfolio';
+    
+    // You could update meta tags here for better SEO
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Professional web developer portfolio showcasing projects, skills, and expertise in creating modern web applications.');
+    }
+    
+    // Analytics tracking could be initialized here
+    console.log('Portfolio page loaded - analytics tracking');
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <ProgressIndicator />
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 };
