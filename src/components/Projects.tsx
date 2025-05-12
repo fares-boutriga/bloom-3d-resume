@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import { Code, Eye, Github } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
 
   const projects = [
     {
@@ -73,11 +75,10 @@ const Projects = () => {
           variants={fadeInUp}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-gradient">Featured Projects</span>
+            <span className="text-gradient">{t('projects')}</span>
           </h2>
           <p className="text-foreground/70 text-lg max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills and expertise in web development.
-            Each project represents unique challenges and solutions.
+          {t('projectsDescription')}
           </p>
         </motion.div>
 
@@ -120,13 +121,13 @@ const Projects = () => {
                     <Button size="sm" variant="default" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                         <Eye size={16} />
-                        <span>Live Demo</span>
+                        <span>{t('liveDemo')}</span>
                       </a>
                     </Button>
                     <Button size="sm" variant="outline" className="border-gradient" asChild>
                       <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                         <Code size={16} />
-                        <span>View Code</span>
+                        <span>{t('viewCode')}</span>
                       </a>
                     </Button>
                   </div>

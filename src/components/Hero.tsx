@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Scene3D from './Scene3D';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Hero = () => {
+    const { t } = useTranslation();
+  
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* 3D Background */}
@@ -20,7 +23,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <p className="text-accent font-medium mb-2">Hello, my name is</p>
+            <p className="text-accent font-medium mb-2">{t('hello')}</p>
           </motion.div>
           
           <motion.h1
@@ -29,7 +32,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-5xl md:text-7xl font-display font-bold mb-4"
           >
-            <span className="text-gradient">John Doe.</span>
+            <span className="text-gradient">{t('name')}</span>
           </motion.h1>
           
           <motion.h2
@@ -38,7 +41,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="text-3xl md:text-5xl font-display font-semibold mb-6 text-foreground/80"
           >
-            I build exceptional digital experiences.
+            {t('tagline')}
           </motion.h2>
           
           <motion.p
@@ -47,9 +50,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="text-xl text-foreground/70 mb-8 max-w-2xl"
           >
-            I'm a web developer specializing in building (and occasionally designing) 
-            exceptional digital experiences. Currently, I'm focused on creating 
-            accessible, human-centered products.
+            {t('description')}
           </motion.p>
           
           <motion.div
@@ -59,10 +60,10 @@ const Hero = () => {
             className="flex flex-wrap gap-4"
           >
             <Button size="lg" className="text-md">
-              View My Work
+            {t('viewWork')}
             </Button>
             <Button variant="outline" size="lg" className="text-md border-gradient">
-              Contact Me
+            {t('contactMe')}
             </Button>
           </motion.div>
         </div>

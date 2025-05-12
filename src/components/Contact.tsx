@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import SocialLinks from './SocialLinks';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -52,18 +54,22 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="h-5 w-5 text-accent" />,
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
+      label: t('phone'),
+      value: t('phoneValue'),
+      application: 'tel',
     },
     {
       icon: <Mail className="h-5 w-5 text-accent" />,
       label: 'Email',
-      value: 'hello@example.com',
+      value: t('emailValue'),
+      application: 'mailto',
+
     },
     {
       icon: <MapPin className="h-5 w-5 text-accent" />,
-      label: 'Location',
-      value: 'San Francisco, CA',
+      label: t('location'),
+      value: t('locationValue'),
+      application: 'https://www.google.com/maps/place/Tunis,+Tunisia/@33.8869179,9.5374992,10z/data=!3m1!4b1!4m6!3m5!1s0x12fd2a7f8c8e5b7d:0x3f8c4e2f8c4e2f8c!8m2!3d33.8869179!4d9.5374992!16zL20vMDJtZzQ',
     },
   ];
 
@@ -87,11 +93,10 @@ const Contact = () => {
           variants={fadeInUp}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-gradient">Get In Touch</span>
+            <span className="text-gradient">{t('contact')}</span>
           </h2>
           <p className="text-foreground/70 text-lg max-w-3xl mx-auto">
-            I'm always interested in hearing about new projects, opportunities, and connections.
-            Feel free to reach out if you want to collaborate or just say hello!
+            {t('contactInformation')}
           </p>
         </motion.div>
 
@@ -102,14 +107,14 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <h3 className="text-2xl font-display font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-display font-semibold mb-6">{t('connectWithMe')}</h3>
             
             <div className="glass-panel rounded-xl p-6 mb-6">
               <ul className="space-y-6">
                 {contactInfo.map((item, index) => (
                   <li key={index} className="flex items-start">
                     <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                      {item.icon}
+                     <a href= {`${item.application}:${item.value}`}> {item.icon}</a>
                     </div>
                     <div className="ml-4">
                       <p className="text-sm text-foreground/70">{item.label}</p>
@@ -121,7 +126,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-8">
-              <h4 className="text-lg font-semibold mb-4">Connect With Me</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('connectWithMe')}</h4>
               <SocialLinks />
             </div>
           </motion.div>
@@ -132,7 +137,7 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <h3 className="text-2xl font-display font-semibold mb-6">Send Me a Message</h3>
+            <h3 className="text-2xl font-display font-semibold mb-6">{t('sendMeMessage')}</h3>
             
             <form onSubmit={handleSubmit} className="glass-panel rounded-xl p-6">
               <div className="grid gap-4">
@@ -140,7 +145,7 @@ const Contact = () => {
                   <Input
                     type="text"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder={t('yourName')}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -151,7 +156,7 @@ const Contact = () => {
                   <Input
                     type="email"
                     name="email"
-                    placeholder="Your Email"
+                    placeholder={t('yourEmail')}
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -162,7 +167,7 @@ const Contact = () => {
                   <Input
                     type="text"
                     name="subject"
-                    placeholder="Subject"
+                    placeholder={t('subject')}
                     value={formData.subject}
                     onChange={handleChange}
                     required
@@ -172,7 +177,7 @@ const Contact = () => {
                 <div>
                   <Textarea
                     name="message"
-                    placeholder="Your Message"
+                    placeholder={t('yourMessage')}
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -187,12 +192,12 @@ const Contact = () => {
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
                       <span className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full" />
-                      Sending...
+                      {t('sending')}
                     </span>
                   ) : (
                     <span className="flex items-center gap-2">
                       <Send size={16} />
-                      Send Message
+                      {t('sendMessage')}
                     </span>
                   )}
                 </Button>

@@ -1,9 +1,12 @@
 
+import { useTranslation } from '@/hooks/useTranslation';
 import { motion } from 'framer-motion';
 import { Code, Layout, Database, Globe } from 'lucide-react';
 
 const About = () => {
   // Skills categories with icons
+      const { t } = useTranslation();
+  
   const skills = [
     {
       category: 'Frontend',
@@ -47,12 +50,10 @@ const About = () => {
           variants={fadeInUp}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-gradient">About Me</span>
+            <span className="text-gradient">{t('about')}</span>
           </h2>
           <p className="text-foreground/70 text-lg">
-            I'm a passionate web developer with over 5 years of experience creating modern web applications.
-            My journey in web development began with a fascination for building interactive experiences,
-            and has evolved into crafting professional, high-performance applications.
+          {t('aboutDescription')}
           </p>
         </motion.div>
         
@@ -64,7 +65,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <h3 className="text-2xl font-display font-semibold mb-4">My Skills & Expertise</h3>
+            <h3 className="text-2xl font-display font-semibold mb-4">{t('description')}</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {skills.map((skill, index) => (
@@ -105,8 +106,8 @@ const About = () => {
               </div>
               
               <div className="absolute -bottom-6 -right-6 glass-panel rounded-xl p-4 shadow-lg">
-                <p className="text-lg font-semibold">5+ Years Experience</p>
-                <p className="text-foreground/70 text-sm">Full Stack Development</p>
+                <p className="text-lg font-semibold"> {t('experience')}</p>
+                <p className="text-foreground/70 text-sm">{t('skills')}</p>
               </div>
             </div>
           </motion.div>

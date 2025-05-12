@@ -7,18 +7,18 @@ const SocialLinks = () => {
     { 
       name: 'GitHub', 
       icon: <Github size={20} />, 
-      href: 'https://github.com' 
+      href: 'https://github.com/fares-boutriga' 
     },
     { 
       name: 'LinkedIn', 
       icon: <Linkedin size={20} />, 
-      href: 'https://linkedin.com' 
+      href: 'https://www.linkedin.com/in/fares-boutriga-69a488222' 
     },
-    { 
-      name: 'Twitter', 
-      icon: <Twitter size={20} />, 
-      href: 'https://twitter.com' 
-    },
+    // { 
+    //   name: 'Twitter', 
+    //   icon: <Twitter size={20} />, 
+    //   href: 'https://twitter.com' 
+    // },
     { 
       name: 'Email', 
       icon: <Mail size={20} />, 

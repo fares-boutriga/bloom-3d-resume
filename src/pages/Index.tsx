@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
@@ -12,14 +11,23 @@ import ProgressIndicator from '@/components/ProgressIndicator';
 const Index = () => {
   useEffect(() => {
     // Set meta tags for SEO
-    document.title = 'John Doe | Web Developer Portfolio';
+    document.title = 'Fares Boutriga | Web Developer Portfolio';
     
-    // You could update meta tags here for better SEO
+    // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Professional web developer portfolio showcasing projects, skills, and expertise in creating modern web applications.');
     }
-    
+
+    // Add canonical tag
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = 'https://www.faresboutriga.com/'; // Replace with your actual canonical URL
+      document.head.appendChild(link);
+    }
+
     // Analytics tracking could be initialized here
     console.log('Portfolio page loaded - analytics tracking');
   }, []);

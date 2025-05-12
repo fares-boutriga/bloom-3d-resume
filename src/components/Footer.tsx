@@ -41,7 +41,7 @@ const Footer = () => {
               <LanguageSelector />
             </div>
             <p className="text-foreground/50 text-sm">
-              © {currentYear} John Doe. {t('rights')}
+              © {currentYear} Fares Boutriga. {t('rights')}
             </p>
           </div>
         </div>

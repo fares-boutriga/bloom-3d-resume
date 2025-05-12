@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SocialLinks from './SocialLinks';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +22,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name:t('home'), href: '#hero' },
+    { name: t('aboutNav'), href: '#about' },
+    { name: t('projectsNav'), href: '#projects' },
+    { name: t('testimonialsNav'), href: '#testimonials' },
+    { name: t('contactNav'), href: '#contact' },
   ];
 
   return (

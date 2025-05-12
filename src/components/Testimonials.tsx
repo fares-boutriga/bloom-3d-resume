@@ -3,11 +3,13 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const { t } = useTranslation();
 
   const testimonials = [
     {
@@ -86,10 +88,10 @@ const Testimonials = () => {
           variants={fadeInUp}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            <span className="text-gradient">Client Testimonials</span>
+            <span className="text-gradient">{t('testimonials')}</span>
           </h2>
           <p className="text-foreground/70 text-lg max-w-3xl mx-auto">
-            Don't just take my word for it. Here's what my clients have to say about working with me on their projects.
+          {t('testimonialsDescription')}
           </p>
         </motion.div>
 
