@@ -90,9 +90,9 @@ export const translations: TranslationsType = {
 
     // About section
     about: "About Me",
-    aboutDescription: "I'm a passionate web developer with over 5 years of experience creating modern web applications. My journey in web development began with a fascination for building interactive experiences, and has evolved into crafting professional, high-performance applications.",
+    aboutDescription: "I'm a passionate web developer with over 2 years of experience creating modern web applications. My journey in web development began with a fascination for building interactive experiences, and has evolved into crafting professional, high-performance applications.",
     skills: "My Skills & Expertise",
-    experience: "5+ Years Experience",
+    experience: "2+ Years Experience",
     fullStack: "Full Stack Development",
 
     // Projects section
@@ -152,9 +152,9 @@ export const translations: TranslationsType = {
 
     // About section
     about: "À Propos de Moi",
-    aboutDescription: "Je suis un développeur web passionné avec plus de 5 ans d'expérience dans la création d'applications web modernes. Mon parcours dans le développement web a commencé par une fascination pour la construction d'expériences interactives, et a évolué vers la création d'applications professionnelles à haute performance.",
+    aboutDescription: "Je suis un développeur web passionné avec plus de 2 ans d'expérience dans la création d'applications web modernes. Mon parcours dans le développement web a commencé par une fascination pour la construction d'expériences interactives, et a évolué vers la création d'applications professionnelles à haute performance.",
     skills: "Mes Compétences & Expertise",
-    experience: "5+ Ans d'Expérience",
+    experience: "2+ Ans d'Expérience",
     fullStack: "Développement Full Stack",
 
     // Projects section
@@ -213,9 +213,9 @@ export const translations: TranslationsType = {
 
     // About section
     about: "نبذة عني",
-    aboutDescription: "أنا مطور ويب شغوف بخبرة تزيد عن 5 سنوات في إنشاء تطبيقات ويب حديثة. بدأت رحلتي في تطوير الويب بافتتان ببناء تجارب تفاعلية، وتطورت إلى إنشاء تطبيقات احترافية عالية الأداء.",
+    aboutDescription: "أنا مطور ويب شغوف بخبرة تزيد عن 2 سنوات في إنشاء تطبيقات ويب حديثة. بدأت رحلتي في تطوير الويب بافتتان ببناء تجارب تفاعلية، وتطورت إلى إنشاء تطبيقات احترافية عالية الأداء.",
     skills: "مهاراتي وخبراتي",
-    experience: "خبرة 5+ سنوات",
+    experience: "خبرة 2+ سنوات",
     fullStack: "تطوير الويب الشامل",
 
     // Projects section
