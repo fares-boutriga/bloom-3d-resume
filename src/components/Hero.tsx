@@ -59,11 +59,11 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 1.0 }}
             className="flex flex-wrap gap-4"
           >
-            <Button size="lg" className="text-md">
-            {t('viewWork')}
+            <Button size="lg" asChild className="text-md">
+              <a href="#projects">{t('viewWork')}</a>
             </Button>
             <Button variant="outline" size="lg" className="text-md border-gradient">
-            {t('contactMe')}
+            <a href="#contact">{t('contactMe')}</a>
             </Button>
           </motion.div>
         </div>
