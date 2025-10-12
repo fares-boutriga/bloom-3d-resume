@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 // Define available languages
@@ -12,27 +11,31 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  // Get language from localStorage or use 'en' as default
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Initialize language from localStorage or browser language
   const [language, setLanguageState] = useState<Language>(() => {
-    const savedLanguage = localStorage.getItem('language');
-    return (savedLanguage as Language) || 'en';
+    const savedLanguage = localStorage.getItem('language') as Language | null;
+    if (savedLanguage) return savedLanguage;
+
+    const browserLang = navigator.language.split('-')[0]; // e.g., 'fr-FR' → 'fr'
+    const supportedLanguages: Language[] = ['en', 'fr', 'ar'];
+    return supportedLanguages.includes(browserLang as Language) ? (browserLang as Language) : 'en';
   });
 
   // Determine text direction based on language
-  const direction = language === 'ar' ? 'rtl' : 'ltr';
+  const direction: 'ltr' | 'rtl' = language === 'ar' ? 'rtl' : 'ltr';
 
-  // Update localStorage when language changes
+  // Update localStorage and state when language changes
   const setLanguage = (newLanguage: Language) => {
     localStorage.setItem('language', newLanguage);
     setLanguageState(newLanguage);
   };
 
-  // Set HTML direction attribute when language changes
+  // Update HTML attributes when language or direction changes
   useEffect(() => {
-    document.documentElement.dir = direction;
     document.documentElement.lang = language;
-  }, [direction, language]);
+    document.documentElement.dir = direction;
+  }, [language, direction]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, direction }}>
@@ -43,7 +46,7 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
