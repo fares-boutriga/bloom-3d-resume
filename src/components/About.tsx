@@ -98,7 +98,8 @@ const About = () => {
               <div className="glass-panel rounded-xl p-1">
                 <div className="aspect-square bg-gradient-to-br from-accent to-primary rounded-lg overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&q=80&w=2000"
+                    src="/myImage.jpg"
+                    // src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&q=80&w=2000"
                     alt="Professional headshot" 
                     className="w-full h-full object-cover"
                   />
