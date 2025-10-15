@@ -57,7 +57,9 @@ type TranslationKeys = {
   sendMeMessage: string;
   messageSent: string;
   messageSentDescription: string;
-
+  error: string;
+  somethingWentWrong: string;
+  
   // Footer
   rights: string;
   language: string;
@@ -125,6 +127,8 @@ export const translations: TranslationsType = {
     sendMeMessage: "Send Me a Message",
     messageSent: "Message sent!",
     messageSentDescription: "Thanks for reaching out. I'll get back to you soon.",
+    error: "Error",
+    somethingWentWrong: "Something went wrong. Please try again.",
 
     // Footer
     rights: "All rights reserved.",
@@ -187,6 +191,8 @@ export const translations: TranslationsType = {
     sendMeMessage: "Envoyez-moi un Message",
     messageSent: "Message envoyé!",
     messageSentDescription: "Merci de votre message. Je vous répondrai bientôt.",
+    error: "Erreur",
+    somethingWentWrong: "Quelque chose s'est mal passé. Veuillez réessayer.",
 
     // Footer
     rights: "Tous droits réservés.",
@@ -248,7 +254,8 @@ export const translations: TranslationsType = {
     sendMeMessage: "أرسل لي رسالة",
     messageSent: "تم إرسال الرسالة!",
     messageSentDescription: "شكرًا للتواصل. سأرد عليك قريبًا.",
-
+    error: "خطأ",
+    somethingWentWrong: "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
     // Footer
     rights: "جميع الحقوق محفوظة.",
     language: "اللغة",

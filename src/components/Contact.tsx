@@ -27,29 +27,48 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Show success message
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xldpapyl", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      toast({
+        title: t('messageSent'),
+        description: t('messageSentDescription'),
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    } else {
+      toast({
+        title: t('error'),
+        description: t('somethingWentWrong') ,
+        variant: 'destructive',
+      });
+    }
+  } catch (error) {
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title:  'error' ,
+      description:  t('somethingWentWrong') ,
+      variant: 'destructive',
     });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
-    
-    setIsSubmitting(false);
-  };
+  }
+
+  setIsSubmitting(false);
+};
 
   const contactInfo = [
     {
