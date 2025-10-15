@@ -32,7 +32,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("https://formspree.io/f/xldpapyl", {
+    const response = await fetch(import.meta.env.VITE_CONTACT_EMAIL_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
