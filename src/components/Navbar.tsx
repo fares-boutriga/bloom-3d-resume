@@ -6,11 +6,23 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SocialLinks from './SocialLinks';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useResumeRequest } from '@/contexts/ResumeRequestContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
+  const { setIsResumeRequest } = useResumeRequest();
+
+  const handleResumeClick = () => {
+    setIsResumeRequest(true);
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +66,7 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <Button variant="outline" className="border-gradient">
+          <Button variant="outline" className="border-gradient" onClick={handleResumeClick}>
            {t("resume")}
           </Button>
         </nav>
@@ -98,8 +110,8 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
-                <Button variant="outline" className="border-gradient mt-4">
-                  Resume
+                <Button variant="outline" className="border-gradient mt-4" onClick={handleResumeClick}>
+                  {t("resume")}
                 </Button>
               </nav>
 

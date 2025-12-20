@@ -59,7 +59,10 @@ type TranslationKeys = {
   messageSentDescription: string;
   error: string;
   somethingWentWrong: string;
-  
+  resumeRequest: string;
+  resumeRequestMessage: string;
+  resumeFillNoticeTitle: string;
+  resumeFillNoticeDescription: string;
   // Footer
   rights: string;
   language: string;
@@ -129,6 +132,10 @@ export const translations: TranslationsType = {
     messageSentDescription: "Thanks for reaching out. I'll get back to you soon.",
     error: "Error",
     somethingWentWrong: "Something went wrong. Please try again.",
+    resumeRequest: "Resume Request",
+    resumeRequestMessage: "Hi, I'm interested in your resume. Could you please share it with me?",
+    resumeFillNoticeTitle: "Please complete your contact info",
+    resumeFillNoticeDescription: "Please add your name and email so I can reply to you.",
 
     // Footer
     rights: "All rights reserved.",
@@ -193,6 +200,10 @@ export const translations: TranslationsType = {
     messageSentDescription: "Merci de votre message. Je vous répondrai bientôt.",
     error: "Erreur",
     somethingWentWrong: "Quelque chose s'est mal passé. Veuillez réessayer.",
+    resumeRequest: "Demande de CV",
+    resumeRequestMessage: "Bonjour, je suis intéressé par votre CV. Pourriez-vous me le partager?",
+    resumeFillNoticeTitle: "Veuillez compléter vos coordonnées",
+    resumeFillNoticeDescription: "Veuillez ajouter votre nom et votre e-mail afin que je puisse vous répondre.",
 
     // Footer
     rights: "Tous droits réservés.",
@@ -256,6 +267,10 @@ export const translations: TranslationsType = {
     messageSentDescription: "شكرًا للتواصل. سأرد عليك قريبًا.",
     error: "خطأ",
     somethingWentWrong: "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    resumeRequest: "طلب السيرة الذاتية",
+    resumeRequestMessage: "مرحبا، أنا مهتم بسيرتك الذاتية. هل يمكنك مشاركتها معي؟",
+    resumeFillNoticeTitle: "الرجاء إكمال معلومات الاتصال",
+    resumeFillNoticeDescription: "يرجى إضافة اسمك وبريدك الإلكتروني حتى أتمكن من الرد عليك.",
     // Footer
     rights: "جميع الحقوق محفوظة.",
     language: "اللغة",

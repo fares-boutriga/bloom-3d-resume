@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import SocialLinks from './SocialLinks';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useResumeRequest } from '@/contexts/ResumeRequestContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,29 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
+  const { isResumeRequest, setIsResumeRequest } = useResumeRequest();
+  const emailRef = useRef<HTMLInputElement | null>(null);
+
+  // Pre-fill form if it's a resume request
+  useEffect(() => {
+    if (isResumeRequest) {
+      setFormData({
+        name: '',
+        email: '',
+        subject: t('resumeRequest'),
+        message: t('resumeRequestMessage'),
+      });
+      // Inform user to complete name and email and focus email input
+      toast({
+        title: t('resumeFillNoticeTitle'),
+        description: t('resumeFillNoticeDescription'),
+      });
+      // focus email shortly after render
+      setTimeout(() => emailRef.current?.focus(), 120);
+      // Reset the resume request state after pre-filling
+      setIsResumeRequest(false);
+    }
+  }, [isResumeRequest, t, setIsResumeRequest]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -179,6 +203,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    ref={emailRef}
                     className="bg-background/50 border-foreground/10 focus:border-accent"
                   />
                 </div>
