@@ -25,7 +25,7 @@ const Navbar = () => {
     { name:t('home'), href: '#hero' },
     { name: t('aboutNav'), href: '#about' },
     { name: t('projectsNav'), href: '#projects' },
-    { name: t('testimonialsNav'), href: '#testimonials' },
+    // { name: t('testimonialsNav'), href: '#testimonials' },
     { name: t('contactNav'), href: '#contact' },
   ];
 
@@ -55,7 +55,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button variant="outline" className="border-gradient">
-            Resume
+           {t("resume")}
           </Button>
         </nav>
 
